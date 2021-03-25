@@ -1,7 +1,19 @@
 import * as React from "react";
-import { View } from "react-native";
+import { View, StyleProp, ViewStyle } from "react-native";
 
-export const Col = ({ children, size }) => {
-  const flex = size || 1;
-  return <View style={{ flex, flexDirection: "column" }}>{children}</View>;
+interface ColProps {
+  size?: number;
+  children?: any;
+  style?: StyleProp<ViewStyle>;
+}
+
+const Col = (props: ColProps) => {
+  const flex = props.size || 1;
+  return (
+    <View style={{ ...{ flex, flexDirection: "column" }, ...props.style }}>
+      {props.children}
+    </View>
+  );
 };
+
+export default Col;

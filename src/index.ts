@@ -1,3 +1,3 @@
-import Layout from './layout'
+import * as Layout from './layout'
 
 export { Layout };
