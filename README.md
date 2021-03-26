@@ -3,9 +3,7 @@
 ### Installation
 ```bash
 npm install github:subekti404dev/urip-rn-kit
-
-or
-
+# or
 yarn add github:subekti404dev/urip-rn-kit
 ```
 
