@@ -1,4 +1,4 @@
 import { formatDate } from "./date.util";
-import { formatIDR } from "./idr.util";
+import { formatIDR, fromIDR } from "./idr.util";
 
-export {formatIDR, formatDate}
+export {formatIDR, fromIDR, formatDate}
