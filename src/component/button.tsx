@@ -9,6 +9,8 @@ interface ButtonProps {
   disabled?: boolean;
   type?: 'block' | 'bordered';
   color?: string;
+  backgroundColor?: string;
+  borderColor?: string;
   radius?: number;
   width?: number;
   height?: number;
@@ -22,8 +24,8 @@ const Button = (props: ButtonProps) => {
     color = `#E4E6E9`;
   }
   const style = {
-    backgroundColor: isBlock ?  color : '#FFF',
-    borderColor: color,
+    backgroundColor: isBlock ?  (props.backgroundColor || color) : '#FFF',
+    borderColor: props.borderColor || color,
     borderWidth: scale(2),
     borderRadius: props.radius || scale(5),
     height: props.height || scale(45),
