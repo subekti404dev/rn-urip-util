@@ -1,5 +1,5 @@
 
-export const toIDR = (value: number) => {
+export const formatIDR = (value: number) => {
   const arr = value.toString().split("").reverse();
   let str: string[] = [];
   for (let i=0; i< arr.length; i++) {
