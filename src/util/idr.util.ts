@@ -27,6 +27,6 @@ export const fromIDR = (idr: string) => {
   try {
     return parseFloat(numString);
   } catch (error) {
-    return null;
+    return 0;
   }
 };
