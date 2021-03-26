@@ -1,17 +1,17 @@
-## REACT NATIVE URIP UTIL
+## REACT NATIVE KIT BY URIP
 
 ### Installation
 ```bash
-npm install github:subekti404dev/rn-urip-util
+npm install github:subekti404dev/urip-rn-kit
 
 or
 
-yarn add github:subekti404dev/rn-urip-util
+yarn add github:subekti404dev/urip-rn-kit
 ```
 
 ### Example Usage
 ```jsx
-import {Row, Col} from 'rn-urip-util'
+import {Row, Col} from 'urip-rn-kit'
 
 render() {
   return (
