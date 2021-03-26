@@ -1,4 +1,4 @@
-## REACT NAIVE URIP UTIL
+## REACT NATIVE URIP UTIL
 
 ### Installation
 ```bash
