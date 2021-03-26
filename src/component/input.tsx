@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { TextInput, View, KeyboardTypeOptions } from 'react-native';
-import { scale } from "react-native-size-matters";
+import { moderateScale, scale } from "react-native-size-matters";
 
 interface InputProps {
   width?: number;
   height?: number;
   value?: string;
+  textSize?: number;
   onChangeText?: (value: string) => any;
   placeholder?: string;
   keyboardType?: KeyboardTypeOptions;
@@ -19,7 +20,9 @@ const Input = (props: InputProps) => {
     height: props.height || scale(45),
     borderColor: 'grey',
     borderWidth: 1,
-    borderRadius: scale(5)
+    borderRadius: scale(5),
+    fontSize: moderateScale(props.textSize || 20),
+    paddingHorizontal: scale(5),
   }
   return (
     <TextInput 

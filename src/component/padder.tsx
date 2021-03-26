@@ -2,37 +2,42 @@ import * as React from "react";
 import { View } from "react-native";
 import { scale } from "react-native-size-matters";
 
+export enum PadderType {
+  t = 't',
+  b = 'b',
+  r = 'r',
+  l = 'l'
+}
 interface PadderProps {
   children?: any;
   size?: number;
-  type?: "all" | "t" | "b" | "l" | "r";
+  type?: PadderType[];
 }
 
 const Padder = (props: PadderProps) => {
   const size = scale(props.size || 10);
-  const type = props.type || "all";
+  const types: PadderType[] = props.type || [PadderType.r, PadderType.l, PadderType.t, PadderType.b];
   const style: any = {};
-  style[typeToAttr(type)] = size;
+  for (const type of types ) {
+    style[typeToAttr(type)] = size;
+  }
 
   return <View style={style}>{props.children}</View>;
 };
 
-const typeToAttr = (type: string) => {
+const typeToAttr = (type: PadderType) => {
   let attr;
   switch (type) {
-    case "all":
-      attr = "padding";
-      break;
-    case "t":
+    case PadderType.t:
       attr = "paddingTop";
       break;
-    case "b":
+    case PadderType.b:
       attr = "paddingBottom";
       break;
-    case "l":
+    case PadderType.l:
       attr = "paddingLeft";
       break;
-    case "r":
+    case PadderType.r:
       attr = "paddingRight";
       break;
     default:

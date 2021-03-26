@@ -4,7 +4,7 @@ import { moderateScale, scale } from "react-native-size-matters";
 
 interface ButtonProps {
   label: string;
-  labelColor: string;
+  labelColor?: string;
   onPress?: () => void;
   disabled?: boolean;
   type?: 'block' | 'bordered';
