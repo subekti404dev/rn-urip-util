@@ -1,3 +1,4 @@
-import * as Layout from './layout'
+import { Row, Col } from "./layout";
+import { Button, Input, Padder } from "./component";
 
-export { Layout };
+export { Row, Col, Button, Padder, Input };
