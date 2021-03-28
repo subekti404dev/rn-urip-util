@@ -11,7 +11,7 @@ yarn add github:subekti404dev/urip-rn-kit
 ### Example Usage
 
 ```jsx
-import {Row, Col, utils, ScaledText} from 'urip-rn-kit'
+import {Row, Col, ScaledText, Dropdown, RadioButtonGroup, utils} from 'urip-rn-kit'
 
 addTax = () => {
   const price = utils.fromIDR('Rp 2.000');
@@ -51,6 +51,12 @@ render() {
           {label: 'Tes7', value: '7'},
         ]}
         value={'1'}
+        onChange={console.log}
+      />
+
+      <RadioButtonGroup
+        data={['Tes 1', 'Tes 2']}
+        activeIndex={1}
         onChange={console.log}
       />
     </Row>

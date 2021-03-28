@@ -1,4 +1,4 @@
-import { Button, Input, Padder, Col, Row, Gap, ScaledText, Dropdown } from "./component";
+import { Button, Input, Padder, Col, Row, Gap, ScaledText, Dropdown, RadioButton, Radio, RadioButtonGroup } from "./component";
 import * as _ from "lodash";
 import * as mmt from "moment";
 import * as sizeMatters from "react-native-size-matters";
@@ -23,6 +23,9 @@ export {
   Gap,
   ScaledText,
   Dropdown,
+  Radio, 
+  RadioButton,
+  RadioButtonGroup,
   utils
 };
 
