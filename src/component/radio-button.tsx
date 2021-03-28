@@ -13,6 +13,7 @@ interface RadioButtonProps {
  active?: boolean;
  radioSize?: number;
  fontSize?: number;
+ color?: string;
  onPress?: () => void;
  key?: number;
 }
@@ -21,7 +22,7 @@ const RadioButton = (props: RadioButtonProps) => {
   <TouchableOpacity onPress={props.onPress}>
    <Padder size={2}>
     <Row>
-     <Radio size={props.radioSize} active={props.active} />
+     <Radio color={props.color} size={props.radioSize} active={props.active} />
      <Gap />
      <Col justifyCenter>
       <ScaledText size={props.fontSize || 18} style={props.labelStyle}>

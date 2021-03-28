@@ -7,6 +7,7 @@ interface RadioButtonGroupProps {
  activeIndex?: number;
  radioSize?: number;
  fontSize?: number;
+ color?: string;
  labelStyle?: StyleProp<TextStyle>;
  onChange?: ({ value: string, index: number }) => void;
 }
@@ -15,7 +16,7 @@ const RadioButtonGroup = (props: RadioButtonGroupProps) => {
  const [active, setActive] = React.useState(props.activeIndex);
 
  return (
-  <View>
+  <View style={{ zIndex: 5 }}>
    {(props.data || []).map((data: string, index: number) => {
     const isActive = active === index;
     const onPress = () => {
@@ -29,6 +30,7 @@ const RadioButtonGroup = (props: RadioButtonGroupProps) => {
       labelStyle={props.labelStyle}
       radioSize={props.radioSize}
       fontSize={props.fontSize}
+      color={props.color}
       onPress={onPress}
       active={isActive}
      />

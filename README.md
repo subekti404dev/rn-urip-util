@@ -20,6 +20,20 @@ addTax = () => {
   console.log(total);
 }
 
+addEventListener = () => {
+  utils.eventUtil.on('test', () => {
+    console.log('ini adalah test');
+  });
+}
+
+triggerEvent = () => {
+  utils.eventUtil.emit('test');
+}
+
+removeEventListener = () => {
+  utils.eventUtil.remove('test');
+}
+
 render() {
   return (
     <Row>

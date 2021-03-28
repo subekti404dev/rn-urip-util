@@ -15,7 +15,7 @@ import {
 import * as _ from "lodash";
 import * as mmt from "moment";
 import * as sizeMatters from "react-native-size-matters";
-import { fromIDR, formatIDR, formatDate, StorageUtil } from "./util";
+import { fromIDR, formatIDR, formatDate, StorageUtil, EventUtilClass } from "./util";
 
 
 LogBox.ignoreLogs(["Require cycle:"]);
@@ -28,6 +28,7 @@ const utils = {
  formatIDR,
  formatDate,
  storage: new StorageUtil(),
+ eventUtil: new EventUtilClass()
 };
 
 export {
