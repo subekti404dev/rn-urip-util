@@ -8,7 +8,6 @@
     "build": "tsc && yarn copy-icons",
     "copy-icons": "copyfiles -f src/assets/*.png dist/assets/",
     "prepare": "npm run build",
-    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "",
