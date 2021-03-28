@@ -1,6 +1,7 @@
 ## REACT NATIVE KIT BY URIP
 
 ### Installation
+
 ```bash
 npm install github:subekti404dev/urip-rn-kit
 # or
@@ -8,8 +9,9 @@ yarn add github:subekti404dev/urip-rn-kit
 ```
 
 ### Example Usage
+
 ```jsx
-import {Row, Col, utils} from 'urip-rn-kit'
+import {Row, Col, utils, ScaledText} from 'urip-rn-kit'
 
 addTax = () => {
   const price = utils.fromIDR('Rp 2.000');
@@ -25,7 +27,17 @@ render() {
         <Text>{utils.formatIDR(10000)}</Text>
         <Text>{utils.formatDate(new Date())}</Text>
       </Col>
-      <Col size={2}></Col>
+      <Col size={2}>
+        <ScaledText
+          size={25} 
+          uppercase 
+          bold
+          italic
+          underline
+          >
+          TEXT
+        </ScaledText>
+      </Col>
     </Row>
   )
 }
