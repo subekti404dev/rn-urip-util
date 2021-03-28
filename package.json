@@ -7,13 +7,13 @@
   "scripts": {
     "build": "tsc && yarn copy-icons",
     "copy-icons": "copyfiles -f src/assets/*.png dist/assets/",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.14.1",
     "copyfiles": "^2.4.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
