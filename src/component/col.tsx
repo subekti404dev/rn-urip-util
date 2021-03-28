@@ -11,6 +11,7 @@ interface ColProps {
   alignStart?: boolean;
   alignCenter?: boolean;
   alignEnd?: boolean;
+  color?: string;
 }
 
  const Col = (props: ColProps) => {
@@ -24,6 +25,7 @@ interface ColProps {
   if (props.alignStart) style.alignItems = 'flex-start';
   if (props.alignCenter) style.alignItems = 'center';
   if (props.alignEnd) style.alignItems = 'flex-end';
+  if (props.color) style.backgroundColor = props.color;
   return (
     <View style={style}>
       {props.children}
