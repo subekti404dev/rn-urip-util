@@ -1,4 +1,4 @@
-import { Button, Input, Padder, Col, Row, Gap, ScaledText } from "./component";
+import { Button, Input, Padder, Col, Row, Gap, ScaledText, Dropdown } from "./component";
 import * as _ from "lodash";
 import * as mmt from "moment";
 import * as sizeMatters from "react-native-size-matters";
@@ -22,6 +22,7 @@ export {
   Input,
   Gap,
   ScaledText,
+  Dropdown,
   utils
 };
 

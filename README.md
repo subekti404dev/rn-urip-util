@@ -29,8 +29,9 @@ render() {
       </Col>
       <Col size={2}>
         <ScaledText
-          size={25} 
-          uppercase 
+          size={25}
+          color={"red"}
+          uppercase
           bold
           italic
           underline
@@ -38,6 +39,20 @@ render() {
           TEXT
         </ScaledText>
       </Col>
+
+      <Dropdown
+        data={[
+          {label: 'Tes1', value: '1'},
+          {label: 'Tes2', value: '2'},
+          {label: 'Tes3', value: '3'},
+          {label: 'Tes4', value: '4'},
+          {label: 'Tes5', value: '5'},
+          {label: 'Tes6', value: '6'},
+          {label: 'Tes7', value: '7'},
+        ]}
+        value={'1'}
+        onChange={console.log}
+      />
     </Row>
   )
 }
