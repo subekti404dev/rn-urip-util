@@ -2,11 +2,15 @@ import * as React from "react";
 import { View, StyleProp, ViewStyle } from "react-native";
 
 interface ColProps {
-  size?: number;
   children?: any;
+  size?: number;
   style?: StyleProp<ViewStyle>;
-  justyfyCenter?: boolean;
+  justifyStart?: boolean;
+  justifyCenter?: boolean;
+  justifyEnd?: boolean;
+  alignStart?: boolean;
   alignCenter?: boolean;
+  alignEnd?: boolean;
 }
 
  const Col = (props: ColProps) => {
@@ -14,8 +18,12 @@ interface ColProps {
   const style = {...props.style};
   style.flex = flex;
   style.flexDirection = 'column';
-  if (props.justyfyCenter) style.justifyContent = 'center';
+  if (props.justifyStart) style.justifyContent = 'flext-start';
+  if (props.justifyCenter) style.justifyContent = 'center';
+  if (props.justifyEnd) style.justifyContent = 'flex-end';
+  if (props.alignStart) style.alignItems = 'flex-start';
   if (props.alignCenter) style.alignItems = 'center';
+  if (props.alignEnd) style.alignItems = 'flex-end';
   return (
     <View style={style}>
       {props.children}
