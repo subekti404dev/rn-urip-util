@@ -27,9 +27,9 @@ const Button = (props: ButtonProps) => {
  const style: any = {
   backgroundColor: isBlock ? props.backgroundColor || color : "#FFF",
   borderColor: props.borderColor || color,
-  borderWidth: scale(2),
-  borderRadius: props.radius || scale(5),
-  height: props.height || scale(45),
+  borderWidth: scale(3),
+  borderRadius: scale(props.radius || 5),
+  height: scale(props.height || 45),
   width: props.width || "100%",
   justifyContent: "center",
   alignItems: "center",

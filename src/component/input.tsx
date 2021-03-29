@@ -7,6 +7,7 @@ interface InputProps {
   height?: number;
   value?: string;
   textSize?: number;
+  radius?: number;
   onChangeText?: (value: string) => any;
   placeholder?: string;
   keyboardType?: KeyboardTypeOptions;
@@ -19,10 +20,10 @@ interface InputProps {
 const Input = (props: InputProps) => {
   const style = {
     width: props.width || '100%',
-    height: props.height || scale(45),
+    height: scale(props.height || 45),
     borderColor: props.borderColor ||'grey',
     borderWidth: 1,
-    borderRadius: scale(5),
+    borderRadius: scale(props.radius || 5),
     fontSize: moderateScale(props.textSize || 18),
     paddingHorizontal: scale(5),
   }
