@@ -26,12 +26,10 @@ export class EventUtilClass {
 
  private assignFun(key: string, fun: any) {
   this._events[key] = fun;
-  console.log({ key, fun });
  }
 
  private callFun(key: string, data?: any) {
   const fun = this._events[key];
-  console.log({ fun });
 
   if (fun) {
    if (data) {
