@@ -74,9 +74,11 @@ render() {
         onChange={console.log}
       />
 
-      <CheckboxGroup 
-        color="green" 
+      <CheckboxGroup
+        color="green"
         data={['Tes 1', 'Tes 2']}
+        selected={['Tes 1']}
+        onChange={console.log}
       />
     </Row>
   )
