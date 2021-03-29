@@ -1,4 +1,4 @@
-import { LogBox } from 'react-native'
+import { LogBox } from "react-native";
 import {
  Button,
  Input,
@@ -15,8 +15,13 @@ import {
 import * as _ from "lodash";
 import * as mmt from "moment";
 import * as sizeMatters from "react-native-size-matters";
-import { fromIDR, formatIDR, formatDate, StorageUtil, EventUtilClass } from "./util";
-
+import {
+ fromIDR,
+ formatIDR,
+ formatDate,
+ StorageUtil,
+ EventUtilClass,
+} from "./util";
 
 LogBox.ignoreLogs(["Require cycle:"]);
 
@@ -28,7 +33,7 @@ const utils = {
  formatIDR,
  formatDate,
  storage: new StorageUtil(),
- eventUtil: new EventUtilClass()
+ eventUtil: new EventUtilClass(),
 };
 
 export {

@@ -24,7 +24,7 @@ const Button = (props: ButtonProps) => {
  if (props.disabled) {
   color = `#E4E6E9`;
  }
- const style = {
+ const style: any = {
   backgroundColor: isBlock ? props.backgroundColor || color : "#FFF",
   borderColor: props.borderColor || color,
   borderWidth: scale(2),
@@ -34,7 +34,7 @@ const Button = (props: ButtonProps) => {
   justifyContent: "center",
   alignItems: "center",
  };
- const labelStyle = {
+ const labelStyle: any = {
   fontSize: moderateScale(18),
   fontWeight: "bold",
   color: props.labelColor || (isBlock ? "#FFF" : color),

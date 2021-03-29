@@ -5,16 +5,25 @@ import {
  TouchableOpacity,
  ScrollView,
  Image,
+ Dimensions,
 } from "react-native";
-import ScaledText from "./scaled-text";
+import { moderateScale, scale } from "react-native-size-matters";
+import RNModal from "react-native-modal";
 import Row from "./row";
 import Col from "./col";
-import Icons from "../assets/index";
-import { moderateScale, scale } from "react-native-size-matters";
+import ScaledText from "./scaled-text";
+import Icons from "../assets";
+
+const Modal: any = RNModal;
 
 interface Data {
  label?: string;
  value?: string;
+}
+
+interface Offset {
+ x?: number;
+ y?: number;
 }
 
 interface DropdownProps {
@@ -27,18 +36,18 @@ interface DropdownProps {
  itemTextColor?: string;
  height?: number;
  fontSize?: number;
+ offset?: Offset;
 }
 
 const Dropdown = (props: DropdownProps) => {
+ let inputRef: any;
  const zIndex = 50;
  const fontSize = moderateScale(props.fontSize || 16);
  const height = scale(props.height || 45);
  const [isVisible, setIsVisible] = React.useState(false);
- const [activeItem, setActiveItem]: [
-  activeItem: any,
-  setActiveItem: any
- ] = React.useState(null);
- const [xy, setXY] = React.useState({ x: 0, y: 0 });
+ const [activeItem, setActiveItem]: [activeItem: any, setActiveItem: any] = React.useState(null);
+ const [width, setWidth] = React.useState(0);
+ const [position, setPosition] = React.useState({ x: 0, y: 0 });
  const data = props.data || [];
  const radius: any = { borderRadius: 5 };
  if (isVisible) radius["borderBottomLeftRadius"] = 0;
@@ -52,15 +61,37 @@ const Dropdown = (props: DropdownProps) => {
   }
  }, []);
 
+ const calculatedPosition = () => {
+  if (inputRef) {
+   inputRef.measureInWindow(
+    (x: number, y: number, width: number, _height: number) => {
+     const isPotrait =
+      Dimensions.get("window").height > Dimensions.get("window").width;
+     const { offset } = props;
+     let xOffset = isPotrait ? -17 : -37;
+     let yOffset = isPotrait ? 25 : 5;
+     if (offset && offset.x) xOffset += offset.x;
+     if (offset && offset.y) yOffset += offset.y;
+
+     setWidth(width);
+     setPosition({ x: x + scale(xOffset), y: y + scale(yOffset) });
+    }
+   );
+  }
+ };
+
  return (
-  <>
+  <View
+   ref={(ref) => {
+    inputRef = ref;
+   }}
+  >
    <TouchableOpacity
     style={[styles.input, { zIndex: zIndex + 1, height }, radius]}
-    onLayout={(event) => {
-     const { x, y } = event.nativeEvent.layout;
-     setXY({ x, y });
+    onPress={(e) => {
+     calculatedPosition();
+     setIsVisible(!isVisible);
     }}
-    onPress={() => setIsVisible(!isVisible)}
    >
     <Row>
      <Col size={3} justifyCenter>
@@ -74,27 +105,37 @@ const Dropdown = (props: DropdownProps) => {
      <Col size={1} justifyCenter alignEnd>
       <Image
        source={isVisible ? Icons.arrowUp : Icons.arrowDown}
-       style={{ width: scale(15), height: scale(15), tintColor: 'grey', marginRight: scale(5) }}
+       style={{
+        width: scale(15),
+        height: scale(15),
+        tintColor: "grey",
+        marginRight: scale(5),
+       }}
       />
      </Col>
     </Row>
    </TouchableOpacity>
-   {isVisible && (
-    <TouchableOpacity
-     style={[styles.backdrop, { zIndex }]}
-     onPress={() => {
-      setIsVisible(false);
-     }}
-    >
-     <View />
-    </TouchableOpacity>
-   )}
-   {isVisible && (
+   <Modal
+    style={{
+     width,
+     position: "absolute",
+     height: scale(150),
+     top: position.y,
+     left: position.x,
+    }}
+    backdropOpacity={0.07}
+    isVisible={isVisible}
+    animationIn="fadeIn"
+    animationOut="fadeOut"
+    onModalHide={() => setIsVisible(false)}
+    onBackdropPress={() => setIsVisible(false)}
+   >
     <ScrollView
-     style={[
-      styles.dropdown,
-      { top: xy.y + height, left: xy.x, zIndex: zIndex + 2 },
-     ]}
+     style={{
+      backgroundColor: "#FFF",
+      borderBottomLeftRadius: scale(5),
+      borderBottomRightRadius: scale(5),
+     }}
     >
      {data.map((item: any, index: number) => {
       const isLast = data.length - 1 === index;
@@ -120,8 +161,8 @@ const Dropdown = (props: DropdownProps) => {
       );
      })}
     </ScrollView>
-   )}
-  </>
+   </Modal>
+  </View>
  );
 };
 

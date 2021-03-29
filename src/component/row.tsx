@@ -16,7 +16,7 @@ interface RowProps {
 
 const Row = (props: RowProps) => {
   const flex = props.size || 1;
-  const style = props.style || {};
+  const style: any = props.style || {};
   style.flex = flex;
   style.flexDirection = 'row';
   if (props.justifyStart) style.justifyContent = 'flext-start';
