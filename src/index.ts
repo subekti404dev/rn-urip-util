@@ -11,6 +11,8 @@ import {
  RadioButton,
  Radio,
  RadioButtonGroup,
+ Checkbox,
+ CheckboxGroup,
 } from "./component";
 import * as _ from "lodash";
 import * as mmt from "moment";
@@ -48,5 +50,7 @@ export {
  Radio,
  RadioButton,
  RadioButtonGroup,
+ Checkbox,
+ CheckboxGroup,
  utils,
 };

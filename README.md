@@ -3,9 +3,9 @@
 ### Installation
 
 ```bash
-npm install github:subekti404dev/urip-rn-kit
+npm install urip-rn-kit
 # or
-yarn add github:subekti404dev/urip-rn-kit
+yarn add urip-rn-kit
 ```
 
 ### Example Usage
@@ -72,6 +72,11 @@ render() {
         data={['Tes 1', 'Tes 2']}
         activeIndex={1}
         onChange={console.log}
+      />
+
+      <CheckboxGroup 
+        color="green" 
+        data={['Tes 1', 'Tes 2']}
       />
     </Row>
   )

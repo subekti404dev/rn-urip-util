@@ -1,4 +1,6 @@
 import Button from "./button";
+import Checkbox from "./checkbox";
+import CheckboxGroup from "./checkbox-group";
 import Col from "./col";
 import Dropdown from "./dropdown";
 import Gap from "./gap";
@@ -22,4 +24,6 @@ export {
  Radio,
  RadioButton,
  RadioButtonGroup,
+ Checkbox,
+ CheckboxGroup
 };
