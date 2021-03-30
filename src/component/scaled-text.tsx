@@ -18,18 +18,21 @@ interface ScaledTextProps {
   | "700"
   | "800"
   | "900";
+ lineHeight?: number;
  italic?: boolean;
  underline?: boolean;
  bold?: boolean;
  uppercase?: boolean;
+ right?: boolean;
  style?: StyleProp<TextStyle>;
 }
 
 const ScaledText = (props: ScaledTextProps) => {
  let text = props.children;
  const style: any = {};
- let fontSize = moderateScale(props.size || 16);
- style.fontSize = fontSize;
+ style.fontSize = moderateScale(props.size || 16);
+ if (props.right) style.textAlign = 'right';
+ if (props.lineHeight) style.lineHeight = moderateScale(props.lineHeight);
  if (props.color) style.color = props.color;
  if (props.weight) style.fontWeight = props.weight;
  if (props.bold) style.fontWeight = "bold";
