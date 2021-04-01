@@ -1,5 +1,6 @@
 import * as React from "react";
 import { View, StyleProp, ViewStyle } from "react-native";
+import { scale } from "react-native-size-matters";
 
 interface RowProps {
   children?: any;
@@ -13,6 +14,7 @@ interface RowProps {
   alignEnd?: boolean;
   center?: boolean;
   color?: string;
+  height?: number;
 }
 
 const Row = (props: RowProps) => {
@@ -30,6 +32,10 @@ const Row = (props: RowProps) => {
   if (props.center) {
     style.alignItems = 'center';
     style.justifyContent = 'center';
+  }
+  if (props.height) {
+    style.height = scale(props.height);
+    delete style.flex;
   }
   return (
     <View style={style}>

@@ -1,3 +1,4 @@
+import Box from "./box";
 import Button from "./button";
 import Checkbox from "./checkbox";
 import CheckboxGroup from "./checkbox-group";
@@ -5,6 +6,7 @@ import Circle from "./circle";
 import Col from "./col";
 import Dropdown from "./dropdown";
 import Gap from "./gap";
+import ImgIcon from "./img-icon";
 import Input from "./input";
 import Line from "./line";
 import Padder from "./padder";
@@ -30,4 +32,6 @@ export {
  CheckboxGroup,
  Line,
  Circle,
+ ImgIcon,
+ Box,
 };

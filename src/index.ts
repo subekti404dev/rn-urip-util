@@ -15,6 +15,8 @@ import {
  CheckboxGroup,
  Line,
  Circle,
+ ImgIcon,
+ Box,
 } from "./component";
 import * as _ from "lodash";
 import * as mmt from "moment";
@@ -56,5 +58,7 @@ export {
  CheckboxGroup,
  Line,
  Circle,
+ ImgIcon,
+ Box,
  utils,
 };
