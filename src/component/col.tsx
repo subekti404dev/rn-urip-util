@@ -11,6 +11,7 @@ interface ColProps {
   alignStart?: boolean;
   alignCenter?: boolean;
   alignEnd?: boolean;
+  center?: boolean;
   color?: string;
 }
 
@@ -26,6 +27,10 @@ interface ColProps {
   if (props.alignCenter) style.alignItems = 'center';
   if (props.alignEnd) style.alignItems = 'flex-end';
   if (props.color) style.backgroundColor = props.color;
+  if (props.center) {
+    style.alignItems = 'center';
+    style.justifyContent = 'center';
+  }
   return (
     <View style={style}>
       {props.children}
