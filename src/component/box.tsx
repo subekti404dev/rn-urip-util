@@ -12,30 +12,39 @@ interface BoxProps {
  borderRadius?: number;
  backgroundImage?: ImageSourcePropType;
  opacity?: number;
+ justifyStart?: boolean;
+ justifyCenter?: boolean;
+ justifyEnd?: boolean;
+ alignStart?: boolean;
+ alignCenter?: boolean;
+ alignEnd?: boolean;
 }
 
 const Box = (props: BoxProps) => {
- let width: number | string = scale(props.width || 100);
- let height: number | string = scale(props.height || 100);
- if (props.fullWidth) width = "100%";
- if (props.fullHeight) height = "100%";
- const borderRadius = scale(props.borderRadius || 0);
- const opacity = props.opacity || 1;
- const backgroundColor = props.color || "transparent";
+ const style: any = {};
+ if (props.justifyStart) style.justifyContent = "flext-start";
+ if (props.justifyCenter) style.justifyContent = "center";
+ if (props.justifyEnd) style.justifyContent = "flex-end";
+ if (props.alignStart) style.alignItems = "flex-start";
+ if (props.alignCenter) style.alignItems = "center";
+ if (props.alignEnd) style.alignItems = "flex-end";
+
+ style.width = scale(props.width || 100);
+ style.height = scale(props.height || 100);
+ if (props.fullWidth) style.width = "100%";
+ if (props.fullHeight) style.height = "100%";
+
+ style.borderRadius = scale(props.borderRadius || 0);
+ style.opacity = props.opacity || 1;
+ style.backgroundColor = props.color || "transparent";
 
  const Component = props.backgroundImage ? ImageBackground : View;
 
  return (
   <Component
    source={props.backgroundImage}
-   style={{
-    width,
-    height,
-    borderRadius,
-    opacity,
-    backgroundColor,
-   }}
-   borderRadius={borderRadius}
+   style={style}
+   borderRadius={style.borderRadius}
   >
    {props.children}
   </Component>

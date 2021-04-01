@@ -17,7 +17,7 @@ const ImgIcon = (props: ImgIconProps) => {
 
  return (
   <Container onPress={props.onPress}>
-   <Padder size={props.padding || 3}>
+   <Padder all={props.padding || 3}>
     <Image
      source={props.source}
      style={{

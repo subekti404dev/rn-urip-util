@@ -2,7 +2,7 @@ import * as React from "react";
 import * as _ from "lodash";
 import { View } from "react-native";
 import Checkbox from "./checkbox";
-import Padder, { PadderType } from "./padder";
+import Padder from "./padder";
 
 interface CheckboxGroupProps {
  color?: string;
@@ -38,7 +38,7 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
     };
 
     return (
-     <Padder key={i} type={[PadderType.v]} size={2}>
+     <Padder key={i} vertical={2}>
       <Checkbox
        checked={index > -1}
        onPress={onPress}

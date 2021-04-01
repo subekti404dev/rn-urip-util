@@ -2,62 +2,32 @@ import * as React from "react";
 import { View } from "react-native";
 import { scale } from "react-native-size-matters";
 
-export enum PadderType {
- t = "t",
- b = "b",
- r = "r",
- l = "l",
- h = "h",
- v = "v",
-}
 interface PadderProps {
  children?: any;
- size?: number;
- type?: PadderType[];
+ all?: number | boolean;
+ horizontal?: number | boolean;
+ vertical?: number | boolean;
+ top?: number | boolean;
+ left?: number | boolean;
+ bottom?: number | boolean;
+ right?: number | boolean;
 }
 
 const Padder = (props: PadderProps) => {
- const size = scale(props.size || 10);
- const types: PadderType[] = props.type || [
-  PadderType.r,
-  PadderType.l,
-  PadderType.t,
-  PadderType.b,
- ];
- const style: any = {};
- for (const type of types) {
-  style[typeToAttr(type)] = size;
+ const sz = (v) => {
+  return (typeof v === 'number') ? scale(v) : scale(10)
  }
+
+ const style: any = {};
+ if (props.all) style.padding = sz(props.all);
+ if (props.top) style.paddingTop = sz(props.top);
+ if (props.bottom) style.paddingBottom = sz(props.bottom);
+ if (props.left) style.paddingLeft = sz(props.left);
+ if (props.right) style.paddingRight = sz(props.right);
+ if (props.horizontal) style.paddingHorizontal = sz(props.horizontal);
+ if (props.vertical) style.paddingVertical = sz(props.vertical);
 
  return <View style={style}>{props.children}</View>;
-};
-
-const typeToAttr = (type: PadderType) => {
- let attr;
- switch (type) {
-  case PadderType.t:
-   attr = "paddingTop";
-   break;
-  case PadderType.b:
-   attr = "paddingBottom";
-   break;
-  case PadderType.l:
-   attr = "paddingLeft";
-   break;
-  case PadderType.r:
-   attr = "paddingRight";
-   break;
-  case PadderType.h:
-   attr = "paddingHorizontal";
-   break;
-  case PadderType.v:
-   attr = "paddingVertical";
-   break;
-  default:
-   attr = "padding";
-   break;
- }
- return attr;
 };
 
 export default Padder;

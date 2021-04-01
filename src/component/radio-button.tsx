@@ -20,7 +20,7 @@ interface RadioButtonProps {
 const RadioButton = (props: RadioButtonProps) => {
  return (
   <TouchableOpacity onPress={props.onPress}>
-   <Padder size={2}>
+   <Padder all={2}>
     <Row>
      <Radio color={props.color} size={props.radioSize} active={props.active} />
      <Gap />

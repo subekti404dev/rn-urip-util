@@ -53,7 +53,7 @@ interface CheckboxProps {
 const Checkbox = (props: CheckboxProps) => {
  return (
   <TouchableOpacity onPress={props.onPress}>
-   <Padder size={2}>
+   <Padder all={2}>
     <Row>
      <CheckboxIcon size={props.size} color={props.color} checked={props.checked} />
      <Gap />
