@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TouchableOpacity, Text, StyleProp, TextStyle } from "react-native";
+import { TouchableOpacity, Text, StyleProp, TextStyle, View } from "react-native";
 import { moderateScale, scale } from "react-native-size-matters";
 
 interface ButtonProps {
@@ -10,6 +10,7 @@ interface ButtonProps {
  disabled?: boolean;
  type?: "block" | "bordered";
  color?: string;
+ disabledColor?: string;
  backgroundColor?: string;
  borderColor?: string;
  radius?: number;
@@ -22,7 +23,7 @@ const Button = (props: ButtonProps) => {
  const isBlock = type === "block";
  let color = props.color || "purple";
  if (props.disabled) {
-  color = `#E4E6E9`;
+  color = props.disabledColor || `#C1C3C5`;
  }
  const style: any = {
   backgroundColor: isBlock ? props.backgroundColor || color : "#FFF",
@@ -43,6 +44,8 @@ const Button = (props: ButtonProps) => {
  if (!props.disabled && props.onPress) {
    onPress = props.onPress;
  }
+
+ const Component = props.disabled ? View : TouchableOpacity;
  return (
   <TouchableOpacity onPress={onPress} style={style}>
    <Text style={[labelStyle, props.labelStyle || {}]}>{props.label}</Text>
