@@ -39,9 +39,12 @@ const Button = (props: ButtonProps) => {
   fontWeight: "bold",
   color: props.labelColor || (isBlock ? "#FFF" : color),
  };
-
+ let onPress;
+ if (!props.disabled && props.onPress) {
+   onPress = props.onPress;
+ }
  return (
-  <TouchableOpacity onPress={props.onPress} style={style}>
+  <TouchableOpacity onPress={onPress} style={style}>
    <Text style={[labelStyle, props.labelStyle || {}]}>{props.label}</Text>
   </TouchableOpacity>
  );
