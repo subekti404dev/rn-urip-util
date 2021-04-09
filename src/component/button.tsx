@@ -47,9 +47,9 @@ const Button = (props: ButtonProps) => {
 
  const Component = props.disabled ? View : TouchableOpacity;
  return (
-  <TouchableOpacity onPress={onPress} style={style}>
+  <Component onPress={onPress} style={style}>
    <Text style={[labelStyle, props.labelStyle || {}]}>{props.label}</Text>
-  </TouchableOpacity>
+  </Component>
  );
 };
 
