@@ -1,3 +1,5 @@
+[![view on npm](http://img.shields.io/npm/v/urip-rn-kit.svg)](https://www.npmjs.org/package/urip-rn-kit)
+[![npm module downloads per month](http://img.shields.io/npm/dm/urip-rn-kit.svg)](https://www.npmjs.org/package/urip-rn-kit)
 ## REACT NATIVE KIT BY URIP
 
 ### Installation
