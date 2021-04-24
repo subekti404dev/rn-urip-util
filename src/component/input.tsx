@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { TextInput, KeyboardTypeOptions } from 'react-native';
+import { TextInput, KeyboardTypeOptions, TextInputProps } from 'react-native';
 import { moderateScale, scale } from "react-native-size-matters";
 
-interface InputProps {
+interface InputProps extends TextInputProps {
   width?: number;
   height?: number;
   value?: string;
